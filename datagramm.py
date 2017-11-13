@@ -36,6 +36,7 @@ def bytes_from_socket(socket):
 
 # from constant data stream, creation of 
 # datagram generator from complete telegrams
+## small change to illustrate git hub usage
 def datagram_from_socket(socket):
 	STX = b'\x02'
 	ETX = b'\x03'
