@@ -27,13 +27,15 @@ tim561Datagram = collections.namedtuple("tim561Datagram",["CommandType",
 															"Data"
 															])
 
-
+# creation of Byte generator from data stream
 def bytes_from_socket(socket):
 	while True:
 		data = socket.recv(256)
 		for byte in data:
 			yield bytes([data])
 
+# from constant data stream, creation of 
+# datagram generator from complete telegrams
 def datagram_from_socket(socket):
 	STX = b'\x02'
 	ETX = b'\x03'
@@ -53,3 +55,4 @@ def datagram_from_socket(socket):
 			datagram += byte
 		yield datagram
 
+print('Hello World')
