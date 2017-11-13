@@ -36,7 +36,6 @@ def bytes_from_socket(socket):
 
 # from constant data stream, creation of 
 # datagram generator from complete telegrams
-## small change to illustrate git hub usage
 def datagram_from_socket(socket):
 	STX = b'\x02'
 	ETX = b'\x03'
@@ -56,4 +55,11 @@ def datagram_from_socket(socket):
 			datagram += byte
 		yield datagram
 
-print('Hello World')
+def parse_nmumber(nbr_str):
+	# decimal numbers are encoded with leading '+' and '-'
+	# if above condition met, cast byte to integer
+	# else cast byte to hex 
+	if b'+' in nbr_str or b'-' in nbr_str:
+		return int(nbr_str)
+	else:
+		return int(nbr_str, 16)
